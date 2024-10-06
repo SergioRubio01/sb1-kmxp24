@@ -1,33 +1,25 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl font-bold text-gray-800 mb-6">
-            Build ML Models with Ease
-          </h1>
-          <p className="text-xl text-gray-600 mb-12">
-            Ratio helps engineers create simple machine learning architectures using intuitive building blocks.
-          </p>
-          <motion.button
-            className="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-indigo-700 transition duration-300 transform hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started
-          </motion.button>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
+    <main
+      className="hero-background w-full flex flex-col justify-center items-center h-screen text-center bg-black bg-opacity-60 text-white"
+      style={{
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' viewBox='0 0 800 800'><defs><linearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='ffflurry-grad' gradientTransform='rotate(270)'><stop stop-color='hsl(0, 0%, 0%)' stop-opacity='1' offset='0%'></stop><stop stop-color='hsl(185, 53%, 55%)' stop-opacity='1' offset='45%'></stop><stop stop-color='hsl(0, 73%, 55%)' stop-opacity='1' offset='100%'></stop></linearGradient></defs><rect width='100%' height='100%' fill='hsl(0, 0%, 0%)'></rect><g fill='url(#ffflurry-grad)'><rect width='69' height='2' x='697.5' y='732' rx='1' transform='rotate(129, 732, 733)' opacity='0.55'></rect><rect width='213' height='2' x='639.5' y='207' rx='1' transform='rotate(129, 746, 208)' opacity='0.62'></rect><rect width='344' height='2' x='561' y='595' rx='1' transform='rotate(129, 733, 596)' opacity='0.75'></rect><rect width='462' height='2' x='137' y='208' rx='1' transform='rotate(129, 368, 209)' opacity='0.53'></rect><rect width='196' height='2' x='250' y='767' rx='1' transform='rotate(129, 348, 768)' opacity='0.43'></rect><rect width='236' height='2' x='383' y='284' rx='1' transform='rotate(129, 501, 285)' opacity='0.13'></rect><rect width='244' height='2' x='495' y='699' rx='1' transform='rotate(129, 617, 700)' opacity='0.43'></rect><rect width='212' height='2' x='561' y='523' rx='1' transform='rotate(129, 667, 524)' opacity='0.41'></rect><rect width='305' height='2' x='125.5' y='120' rx='1' transform='rotate(129, 278, 121)' opacity='0.93'></rect><rect width='195' height='2' x='0.5' y='693' rx='1' transform='rotate(129, 98, 694)' opacity='0.38'></rect><rect width='336' height='2' x='224' y='369' rx='1' transform='rotate(129, 392, 370)' opacity='0.20'></rect><rect width='284' height='2' x='482' y='266' rx='1' transform='rotate(129, 624, 267)' opacity='0.73'></rect><rect width='113' height='2' x='34.5' y='470' rx='1' transform='rotate(129, 91, 471)' opacity='0.09'></rect><rect width='90' height='2' x='476' y='639' rx='1' transform='rotate(129, 521, 640)' opacity='0.26'></rect><rect width='313' height='2' x='233.5' y='684' rx='1' transform='rotate(129, 390, 685)' opacity='0.78'></rect><rect width='308' height='2' x='366' y='132' rx='1' transform='rotate(129, 520, 133)' opacity='0.93'></rect><rect width='110' height='2' x='97' y='115' rx='1' transform='rotate(129, 152, 116)' opacity='0.85'></rect><rect width='388' height='2' x='61' y='642' rx='1' transform='rotate(129, 255, 643)' opacity='0.49'></rect><rect width='147' height='2' x='447.5' y='475' rx='1' transform='rotate(129, 521, 476)' opacity='0.47'></rect><rect width='402' height='2' x='524' y='104' rx='1' transform='rotate(129, 725, 105)' opacity='0.97'></rect><rect width='507' height='2' x='-154.5' y='260' rx='1' transform='rotate(129, 99, 261)' opacity='0.75'></rect><rect width='277' height='2' x='513.5' y='415' rx='1' transform='rotate(129, 652, 416)' opacity='0.22'></rect><rect width='90' height='2' x='34' y='49' rx='1' transform='rotate(129, 79, 50)' opacity='0.55'></rect><rect width='88' height='2' x='708' y='292' rx='1' transform='rotate(129, 752, 293)' opacity='0.48'></rect><rect width='313' height='2' x='594.5' y='390' rx='1' transform='rotate(129, 751, 391)' opacity='0.68'></rect><rect width='110' height='2' x='581' y='50' rx='1' transform='rotate(129, 636, 51)' opacity='0.29'></rect><rect width='350' height='2' x='81' y='411' rx='1' transform='rotate(129, 256, 412)' opacity='0.49'></rect><rect width='218' height='2' x='325' y='42' rx='1' transform='rotate(129, 434, 43)' opacity='0.39'></rect><rect width='468' height='2' x='164' y='553' rx='1' transform='rotate(129, 398, 554)' opacity='0.35'></rect><rect width='97' height='2' x='461.5' y='756' rx='1' transform='rotate(129, 510, 757)' opacity='0.86'></rect></g></svg>")`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
+      <h1 className="max-w-1/2 w-2/5 text-4xl md:text-6xl font-bold">
+        <span className="text-blue-400">BizAI:</span> The best ML no-code platform
+      </h1>
+      <p className="mt-4 text-xl md:text-xl text-gray-400">🚀 Tired of hearing about AI but never have been able to create your own model?</p>
+      <p className="mt-2 text-lg text-gray-400">😉 We make all the heavy-lifting so you can focus on the creative part of AI</p>
+      <button className="mt-8 bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-full text-lg">Download For Free</button>
+      <p className="mt-4 text-sm text-gray-400">Backed by <span className="text-orange-500">Y Combinator</span></p>
+    </main>
+  );
+};
 
-export default Hero
+export default Hero;

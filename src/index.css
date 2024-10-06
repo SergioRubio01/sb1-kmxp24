@@ -14,6 +14,17 @@ body {
   line-height: 1.7;
 }
 
+main {
+  background-color: rgba(0, 0, 0, 0.6); /* Setting a semi-transparent black background */
+  color: white; /* Text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+}
+
 @layer components {
   .btn {
     @apply px-4 py-2 rounded-md transition duration-300 ease-in-out;
