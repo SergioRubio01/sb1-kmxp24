@@ -33,7 +33,7 @@ const Hero = () => {
           <h1 className="text-2xl font-bold">BizAI</h1>
         </div>
         <div className="sm:hidden relative">
-          <button onClick={toggleNavDropdown} className='flex menu-bounce'>
+          <button onClick={toggleNavDropdown} className='flex menu-bounce rounded-lg p-1 hover:bg-gray-800'>
             <Menu size={26} />
           </button>
           {isNavDropdownOpen && (
@@ -61,7 +61,7 @@ const Hero = () => {
               <UserRound size={24} />
             </button>
             {isDropdownOpen && (
-              <div className={`absolute left-1/2 transform -translate-x-1/2 mt-4 w-32 ${isDarkMode ? 'bg-slate-600 text-white' : 'bg-gray-300 text-black'} rounded-md shadow-lg`}>
+              <div className={`absolute right-0 transform -translate-x-1/2 mt-4 w-32 ${isDarkMode ? 'bg-slate-600 text-white' : 'bg-gray-300 text-black'} rounded-md shadow-lg animate__animated animate__backInDown`}>
                 <a href="/login" className={`flex items-center justify-center px-4 py-2 text-sm ${isDarkMode ? 'hover:bg-slate-800':'hover:bg-gray-500'} rounded-md`}>
                   <UserPlus className="mr-2" size={16} /> Sign Up
                 </a>
@@ -72,7 +72,7 @@ const Hero = () => {
         </div>
       </header>
 
-      <animated.h1 className="w-4/5 md:text-6xl text-4xl font-bold md:mt-48 mt-20">
+      <animated.h1 className="w-4/5 md:text-6xl text-4xl font-bold md:mt-48 mt-32">
         <animated.span className="text-red-600">
           BizAI:
         </animated.span>{' '}

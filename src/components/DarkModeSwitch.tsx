@@ -6,7 +6,7 @@ const DarkModeSwitch = ({ isDarkMode, toggleDarkMode }) => {
   return (
     <StyledWrapper>
       <div className="toggle-switch">
-        <button onClick={toggleDarkMode} className="dark-mode-button">
+        <button onClick={toggleDarkMode} className={`dark-mode-button p-1 rounded-full ${isDarkMode ? 'hover:bg-slate-800' : 'hover:bg-gray-300' }`}>
           {isDarkMode ? <Moon className="icon" size={24} /> : <Sun className="icon" size={24} />}
         </button>
       </div>
@@ -33,8 +33,6 @@ const StyledWrapper = styled.div`
   }
 
   .dark-mode-button {
-    background: none;
-    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -43,7 +41,7 @@ const StyledWrapper = styled.div`
   }
 
   .dark-mode-button:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
 
   .icon {
