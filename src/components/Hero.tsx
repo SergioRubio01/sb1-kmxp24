@@ -81,13 +81,13 @@ const Hero = () => {
         </div>
       </header>
 
-      <h1 className="max-w-1/2 w-3/5 md:text-6xl text-3xl font-bold md:mt-48 mt-16">
+      <h1 className="max-w-1/2 sm:w-3/5 w-4/5 md:text-6xl text-4xl font-bold md:mt-48 mt-20">
         <span className="text-red-800">BizAI:</span> The best ML no-code software experience
       </h1>
-      <p className={`sm:mt-20 mt-10 font-semibold mb-4 ml-4 mr-4 text-md sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>
+      <p className={`sm:mt-20 mt-10 font-semibold mb-4 ml-10 mr-10 text-md sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>
         <span>🤔 Tired of hearing about AI but never been able to create your</span><span className='font-bold'> own</span> model?
       </p>
-      <p className={`sm:mb-28 mb-14 mt-4 ml-4 mr-4 text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
+      <p className={`sm:mb-28 mb-14 mt-4 ml-10 mr-10 border text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
       <CoolButton_2 children={'Get Started'} />
 
       {/* Background Image Layer at the Bottom */}
