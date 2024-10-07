@@ -45,6 +45,11 @@ const Features = ({ isDarkMode }) => {
           />
         </div>
       </div>
+      <img
+          src="../techny-artificial-intelligence-on-tablet-screen.gif" // Replace with your GIF URL or local path
+          alt="BizAI in Action"
+          className="w-full max-w-md rounded-lg shadow-lg"
+        />
     </section>
   );
 };

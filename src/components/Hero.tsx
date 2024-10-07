@@ -45,7 +45,7 @@ const Hero = () => {
             <Menu size={26} />
           </button>
           {isNavDropdownOpen && (
-            <div className={`fixed top-24 left-10 w-4/5 h-1/4 bg-opacity-100 flex flex-col justify-center items-center ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-white text-black'} border-4 rounded-xl border-gray-800`}>
+            <div className={`fixed top-24 left-10 w-4/5 h-1/3 bg-opacity-100 flex flex-col justify-center items-center ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-white text-black'} border-4 rounded-xl border-gray-800`}>
               <a href="/resources" className={`hover:animate-pulse block mt-6 py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>🔍Resources</a>
               <a href="/pricing" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>🔝 Pricing</a>
               <a href="/docs" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>📚Documentation</a>
