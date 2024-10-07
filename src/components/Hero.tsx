@@ -87,7 +87,7 @@ const Hero = () => {
       <p className={`sm:mt-20 mt-10 font-semibold mb-4 ml-4 mr-4 text-md sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>
         <span>🤔 Tired of hearing about AI but never been able to create your</span><span className='font-bold'> own</span> model?
       </p>
-      <p className={`sm:mb-16 mb-8 mt-4 ml-4 mr-4 text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
+      <p className={`sm:mb-28 mb-14 mt-4 ml-4 mr-4 text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
       <CoolButton_2 children={'Get Started'} />
 
       {/* Background Image Layer at the Bottom */}

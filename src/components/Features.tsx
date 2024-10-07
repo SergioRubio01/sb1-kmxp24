@@ -1,12 +1,11 @@
 import React from 'react';
 import { Brain, Code, Zap } from 'lucide-react';
 import CardFeatures from './CardFeatures';
-import BgImage_3 from './BgImage_3';
 
 const Features = ({ isDarkMode }) => {
   return (
     <section
-      className={`relative w-full h-full flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 `}
+      className={`relative w-full h-full pt-20 flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 `}
       style={{
         backgroundSize: isDarkMode ? 'cover' : '100% 200%',
         backgroundRepeat: 'no-repeat',
@@ -18,7 +17,7 @@ const Features = ({ isDarkMode }) => {
           <span className={isDarkMode ? 'text-gray-300' : 'text-black'}>Why</span>
           <span className="text-red-900"> BizAI</span>?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-14">
           <CardFeatures
             title="No-Code"
             description="Build AI, no code needed."
@@ -52,8 +51,7 @@ const Features = ({ isDarkMode }) => {
         </div>
       </div>
       {/* Background Image Layer at the Bottom */}
-      <BgImage_3 />
-
+      
     </section>
   );
 };
