@@ -6,18 +6,13 @@ const Features = ({ isDarkMode }) => {
   return (
     <section
       className={`relative w-full h-full pt-20 flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 `}
-      style={{
-        backgroundSize: isDarkMode ? 'cover' : '100% 200%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-      }}
     >
-      <div className="w-1/2">
+      <div className="sm:w-1/2 sm:mx-0 mx-5">
         <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
           <span className={isDarkMode ? 'text-gray-300' : 'text-black'}>Why</span>
           <span className="text-red-900"> BizAI</span>?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 pt-14">
           <CardFeatures
             title="No-Code"
             description="Build AI, no code needed."
@@ -50,8 +45,6 @@ const Features = ({ isDarkMode }) => {
           />
         </div>
       </div>
-      {/* Background Image Layer at the Bottom */}
-      
     </section>
   );
 };

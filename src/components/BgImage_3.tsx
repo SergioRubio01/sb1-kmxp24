@@ -13,10 +13,10 @@ const BgImage_3 = () => {
     // Create fixed lines at 45-degree angle
     for (let i = 0; i < numFixedLines; i++) {
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      line.setAttribute('width', Math.random() * 200 + 199); // Random width between 50 and 250
+      line.setAttribute('width', Math.random() * 200 + 50); // Random width between 50 and 250
       line.setAttribute('height', 1);
-      line.setAttribute('x', Math.random() * svgWidth - 100); // Random x-coordinate across the entire width
-      line.setAttribute('y', Math.random() * svgHeight - 100); // Random y-coordinate across the entire height
+      line.setAttribute('x', Math.random() * svgWidth); // Random x-coordinate across the entire width
+      line.setAttribute('y', Math.random() * svgHeight); // Random y-coordinate across the entire height
       line.setAttribute('rx', 1);
       line.setAttribute('transform', 'rotate(45)'); // All lines rotated to the same angle
       line.setAttribute('fill', 'url(#ffflurry-grad)');

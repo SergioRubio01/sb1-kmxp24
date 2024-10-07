@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import CoolButton_2 from './CoolButton_2';
 import DarkModeSwitch from './DarkModeSwitch';
 import { UserRound, AudioWaveform, UserPlus, Menu, X } from 'lucide-react';
-import BgImage_3 from './BgImage_3';
 
 const Hero = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -46,12 +45,12 @@ const Hero = () => {
             <Menu size={26} />
           </button>
           {isNavDropdownOpen && (
-            <div className={`fixed top-24 left-10 w-4/5 h-1/5 bg-opacity-100 flex flex-col justify-center items-center ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-white text-black'} border-4 rounded-xl border-gray-800`}>
+            <div className={`fixed top-24 left-10 w-4/5 h-1/4 bg-opacity-100 flex flex-col justify-center items-center ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-white text-black'} border-4 rounded-xl border-gray-800`}>
               <a href="/resources" className={`hover:animate-pulse block mt-6 py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>🔍Resources</a>
               <a href="/pricing" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>🔝 Pricing</a>
               <a href="/docs" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>📚Documentation</a>
               <a href="#github" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>⭐GitHub</a>
-              <button onClick={toggleNavDropdown} className="mt-6 px-6 py-4 bg-red-900 rounded-full text-white text-lg flex items-center hover:animate-pulse">
+              <button onClick={toggleNavDropdown} className="my-2 px-6 py-4 bg-red-900 rounded-full text-white text-lg flex items-center hover:animate-pulse">
                 <X className="flex" size={24} />
               </button>
             </div>
@@ -87,11 +86,10 @@ const Hero = () => {
       <p className={`sm:mt-20 mt-10 font-semibold mb-4 ml-10 mr-10 text-md sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>
         <span>🤔 Tired of hearing about AI but never been able to create your</span><span className='font-bold'> own</span> model?
       </p>
-      <p className={`sm:mb-28 mb-14 mt-4 ml-10 mr-10 border text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
+      <p className={`sm:mb-28 mb-14 mt-4 ml-10 mr-10 text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
       <CoolButton_2 children={'Get Started'} />
 
-      {/* Background Image Layer at the Bottom */}
-      <BgImage_3 />
+
     </main>
   );
 };

@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const CardFeatures = ( {title, description, icon} ) => {
+const CardFeatures = ({ title, description, icon }) => {
   return (
     <StyledWrapper>
       <div className="card">
-        <div className="icon-wrapper">
-          {icon}
-        </div>
+        <div className="icon-wrapper">{icon}</div>
         <div className="card__content">
           <p className="card__title">{title}</p>
           <p className="card__description">{description}</p>
@@ -21,13 +19,13 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  margin: 2px;
 
   .card {
     position: relative;
-    width: 300px;
-    height: 200px;
-    background: linear-gradient(-45deg, #ffffff 0%, #7F1D1D 100% );
+    width: 260px;
+    height: 180px;
+    background: linear-gradient(-45deg, #ffffff 0%, #7F1D1D 100%);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -54,7 +52,7 @@ const StyledWrapper = styled.div`
     transform: translate(-50%, -50%) rotate(-45deg);
     width: 100%;
     height: 100%;
-    padding: 40px;
+    padding: 30px;
     box-sizing: border-box;
     background-color: #fff;
     opacity: 0;
@@ -68,14 +66,14 @@ const StyledWrapper = styled.div`
 
   .card__title {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
     color: #333;
     font-weight: 700;
   }
 
   .card__description {
     margin: 10px 0 0;
-    font-size: 14px;
+    font-size: 12px;
     color: #777;
     line-height: 1.4;
   }
