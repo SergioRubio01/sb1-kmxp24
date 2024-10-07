@@ -1,39 +1,28 @@
 import { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
-import CoolButton_2 from './CoolButton_2';
+import { useDarkMode } from '../pages/LandingPage';
+import { useSpring, animated } from 'react-spring'; // Import animated from react-spring
 import DarkModeSwitch from './DarkModeSwitch';
+import CoolButton_2 from './CoolButton_2';
 import { UserRound, AudioWaveform, UserPlus, Menu, X } from 'lucide-react';
 import 'animate.css';
 
 const Hero = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isNavDropdownOpen, setIsNavDropdownOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen((prevState) => !prevState);
   };
 
   const toggleNavDropdown = () => {
-    setIsNavDropdownOpen(!isNavDropdownOpen);
-  };
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    setIsNavDropdownOpen((prevState) => !prevState);
   };
 
   return (
     <main
-      className={`relative w-full h-full flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-red-100 text-black'} pb-44 ${isNavDropdownOpen ? 'bg-opacity-90' : 'bg-opacity-60'}`}
+      className={`relative w-full min-h-screen flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-red-100 text-black'} pb-44`}
       style={{
-        // backgroundSize: isDarkMode ? 'cover' : '100% 100%',
-        // backgroundRepeat: 'no-repeat',
-        // backgroundPosition: 'center',
         backgroundImage: isDarkMode ? `url(fondo_3.svg)` : `url(fondo_5.svg)`,
       }}
     >
@@ -44,7 +33,7 @@ const Hero = () => {
           <h1 className="text-2xl font-bold">BizAI</h1>
         </div>
         <div className="sm:hidden relative">
-          <button onClick={toggleNavDropdown} className='flex menu-bounce animate__animated animate__rubberBand'>
+          <button onClick={toggleNavDropdown} className='flex menu-bounce'>
             <Menu size={26} />
           </button>
           {isNavDropdownOpen && (
@@ -83,7 +72,7 @@ const Hero = () => {
         </div>
       </header>
 
-      <animated.h1 className="max-w-1/2 sm:w-3/5 w-4/5 md:text-6xl text-4xl font-bold md:mt-48 mt-20">
+      <animated.h1 className="w-4/5 md:text-6xl text-4xl font-bold md:mt-48 mt-20">
         <animated.span className="text-red-600">
           BizAI:
         </animated.span>{' '}
@@ -100,4 +89,5 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+// Use named export instead of default export
+export { Hero };

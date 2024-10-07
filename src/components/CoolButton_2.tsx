@@ -1,32 +1,50 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const CoolButton_2 = ({ children, height, href }) => {
+const CoolButton_2 = ({ children, height, href, paddingX }) => {
+  // State to track if the button was clicked
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = (event) => {
-    if (href) {
-      setIsClicked(true);
-      setTimeout(() => {
+  // useEffect hook to reset the click state after a timeout
+  useEffect(() => {
+    let timeout;
+    if (isClicked) {
+      // Set a timeout to reset the click state after 200ms
+      timeout = setTimeout(() => {
         setIsClicked(false);
       }, 200);
+    }
+    // Cleanup function to clear the timeout when component unmounts or `isClicked` changes
+    return () => clearTimeout(timeout);
+  }, [isClicked]);
+
+  // Handle click event
+  const handleClick = (event) => {
+    if (href) {
+      // If href is provided, set click state to true
+      setIsClicked(true);
     } else {
-      event.preventDefault(); // Prevent default if no href is provided
+      // Prevent default behavior if no href is provided (e.g., prevent link navigation)
+      event.preventDefault();
     }
   };
 
   return (
-    <StyledWrapper height={height}>
+    <StyledWrapper height={height} paddingX={paddingX}>
       <motion.a
-        className="button" // Add the class name to use the styles from StyledWrapper
-        whileHover={{ scale: 1.05 }} // Hover animation to increase size
-        whileTap={{ scale: 0.9 }} // Click animation to decrease size
-        onClick={handleClick} // Handle the click event
-        href={href} // Add the href attribute to the anchor
-        rel="noopener noreferrer" // Security for opening new tabs
+        className="button"
+        // Animation to slightly increase the size when hovered
+        whileHover={{ scale: 1.05 }}
+        // Animation to slightly decrease the size when clicked
+        whileTap={{ scale: 0.9 }}
+        onClick={handleClick}
+        href={href}
+        // Open link in a new tab if href is provided
+        // target={href ? "_blank" : undefined}
+        rel="noopener noreferrer"
       >
-        <span className="button-content font-bold font-mono">{children}</span> {/* Wrap children inside a span with class button-content */}
+        <span className="button-content font-bold font-mono">{children}</span>
       </motion.a>
     </StyledWrapper>
   );
@@ -38,31 +56,33 @@ const StyledWrapper = styled.div`
   justify-content: center;
 
   .button {
-    display: flex; // Use flexbox for centering
-    align-items: center; // Center vertically
-    justify-content: center; // Center horizontally
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
     height: ${(props) => props.height || "2rem"};
-    padding: 0 2rem; // Remove padding for better centering
+    padding: 0 ${(props) => props.paddingX || "2rem"};
     border-radius: 1rem;
     background: #3d3a4e;
-    background-size: 400%;
+    background-size: 200%;
     color: #fff;
-    text-decoration: none; // Remove underline from link
+    text-decoration: none;
     border: none;
     cursor: pointer;
     transition: transform 0.2s;
+    will-change: transform; // Hint to the browser to optimize the transform property for better performance
   }
 
   .button:hover::before {
+    // Scale the background gradient when the button is hovered
     transform: scaleX(1);
   }
 
   .button-content {
     position: relative;
-    z-index: 2; // Increase z-index to ensure text is above the ::before pseudo-element
-    color: #fff; // Ensure the text color remains visible during hover
+    z-index: 2; // Ensure the button text is always above the background gradient
+    color: #fff;
   }
 
   .button::before {
@@ -70,8 +90,8 @@ const StyledWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    transform: scaleX(0);
-    transform-origin: 0 50%;
+    transform: scaleX(0); // Initially scale the gradient to 0 (hidden)
+    transform-origin: left center; // Scale from the left side
     width: 100%;
     height: inherit;
     border-radius: inherit;
@@ -81,7 +101,7 @@ const StyledWrapper = styled.div`
       rgba(150, 100, 94, 1) 70%
     );
     transition: all 0.2s;
-    z-index: 1; // Ensure the background is below the button content
+    z-index: 1; // Ensure the background gradient is below the button text
   }
 `;
 
