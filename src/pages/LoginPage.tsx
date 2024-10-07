@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGoogle, FaGithub } from 'react-icons/fa'
-import Button from "../components/Button"
+import Button from "../components/CoolButton_1"
 
 const LoginPage = () => {
   const [role, setRole] = useState('')
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-200 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-black py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         className="max-w-md w-full space-y-10 bg-white p-10 rounded-3xl shadow-xl"
         initial={{ opacity: 0, y: 50 }}

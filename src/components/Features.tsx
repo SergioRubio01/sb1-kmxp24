@@ -1,55 +1,61 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Brain, Code, Zap } from 'lucide-react'
+import React from 'react';
+import { Brain, Code, Zap } from 'lucide-react';
+import CardFeatures from './CardFeatures';
+import BgImage_3 from './BgImage_3';
 
-const features = [
-  {
-    icon: Brain,
-    title: 'Intuitive Building Blocks',
-    description: 'Create ML models using pre-built, customizable components.'
-  },
-  {
-    icon: Code,
-    title: 'Easy Integration',
-    description: 'Seamlessly integrate with existing codebases and workflows.'
-  },
-  {
-    icon: Zap,
-    title: 'Rapid Prototyping',
-    description: 'Quickly iterate and test different ML architectures.'
-  }
-]
-
-const Features = () => {
+const Features = ({ isDarkMode }) => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-          Why Choose Ratio?
+    <section
+      className={`relative w-full h-full flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 `}
+      style={{
+        backgroundSize: isDarkMode ? 'cover' : '100% 200%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="w-1/2">
+        <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
+          <span className={isDarkMode ? 'text-gray-300' : 'text-black'}>Why</span>
+          <span className="text-red-900"> BizAI</span>?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-lg shadow-md p-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ 
-                scale: 1.05, 
-                zIndex: 1,
-                transition: { duration: 0.2 }
-              }}
-            >
-              <feature.icon className="w-12 h-12 text-indigo-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-16">
+          <CardFeatures
+            title="No-Code"
+            description="Build AI, no code needed."
+            icon={<Brain size={40} className="text-red-600" />}
+          />
+          <CardFeatures
+            title="Efficient"
+            description="AI power without the price."
+            icon={<Zap size={40} className="text-yellow-500" />}
+          />
+          <CardFeatures
+            title="Fast"
+            description="Deploy models in record time."
+            icon={<Code size={40} className="text-blue-500" />}
+          />
+          <CardFeatures
+            title="Scalable"
+            description="Grow AI with your business."
+            icon={<Brain size={40} className="text-green-600" />}
+          />
+          <CardFeatures
+            title="Integrated"
+            description="Seamless tool integration."
+            icon={<Zap size={40} className="text-purple-500" />}
+          />
+          <CardFeatures
+            title="Supported"
+            description="Experts at your service."
+            icon={<Code size={40} className="text-orange-500" />}
+          />
         </div>
       </div>
-    </section>
-  )
-}
+      {/* Background Image Layer at the Bottom */}
+      <BgImage_3 />
 
-export default Features
+    </section>
+  );
+};
+
+export default Features;

@@ -1,23 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CoolButton_2 from './CoolButton_2';
+import DarkModeSwitch from './DarkModeSwitch';
+import { UserRound, AudioWaveform, UserPlus, Menu, X } from 'lucide-react';
+import BgImage_3 from './BgImage_3';
 
 const Hero = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isNavDropdownOpen, setIsNavDropdownOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleNavDropdown = () => {
+    setIsNavDropdownOpen(!isNavDropdownOpen);
+  };
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    if (!isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   return (
     <main
-      className="hero-background w-full flex flex-col justify-center items-center h-screen text-center bg-black bg-opacity-60 text-white"
+      className={`relative w-full h-full flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 ${isNavDropdownOpen ? 'bg-opacity-90' : 'bg-opacity-60'}`}
       style={{
-        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' viewBox='0 0 800 800'><defs><linearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='ffflurry-grad' gradientTransform='rotate(270)'><stop stop-color='hsl(0, 0%, 0%)' stop-opacity='1' offset='0%'></stop><stop stop-color='hsl(185, 53%, 55%)' stop-opacity='1' offset='45%'></stop><stop stop-color='hsl(0, 73%, 55%)' stop-opacity='1' offset='100%'></stop></linearGradient></defs><rect width='100%' height='100%' fill='hsl(0, 0%, 0%)'></rect><g fill='url(#ffflurry-grad)'><rect width='69' height='2' x='697.5' y='732' rx='1' transform='rotate(129, 732, 733)' opacity='0.55'></rect><rect width='213' height='2' x='639.5' y='207' rx='1' transform='rotate(129, 746, 208)' opacity='0.62'></rect><rect width='344' height='2' x='561' y='595' rx='1' transform='rotate(129, 733, 596)' opacity='0.75'></rect><rect width='462' height='2' x='137' y='208' rx='1' transform='rotate(129, 368, 209)' opacity='0.53'></rect><rect width='196' height='2' x='250' y='767' rx='1' transform='rotate(129, 348, 768)' opacity='0.43'></rect><rect width='236' height='2' x='383' y='284' rx='1' transform='rotate(129, 501, 285)' opacity='0.13'></rect><rect width='244' height='2' x='495' y='699' rx='1' transform='rotate(129, 617, 700)' opacity='0.43'></rect><rect width='212' height='2' x='561' y='523' rx='1' transform='rotate(129, 667, 524)' opacity='0.41'></rect><rect width='305' height='2' x='125.5' y='120' rx='1' transform='rotate(129, 278, 121)' opacity='0.93'></rect><rect width='195' height='2' x='0.5' y='693' rx='1' transform='rotate(129, 98, 694)' opacity='0.38'></rect><rect width='336' height='2' x='224' y='369' rx='1' transform='rotate(129, 392, 370)' opacity='0.20'></rect><rect width='284' height='2' x='482' y='266' rx='1' transform='rotate(129, 624, 267)' opacity='0.73'></rect><rect width='113' height='2' x='34.5' y='470' rx='1' transform='rotate(129, 91, 471)' opacity='0.09'></rect><rect width='90' height='2' x='476' y='639' rx='1' transform='rotate(129, 521, 640)' opacity='0.26'></rect><rect width='313' height='2' x='233.5' y='684' rx='1' transform='rotate(129, 390, 685)' opacity='0.78'></rect><rect width='308' height='2' x='366' y='132' rx='1' transform='rotate(129, 520, 133)' opacity='0.93'></rect><rect width='110' height='2' x='97' y='115' rx='1' transform='rotate(129, 152, 116)' opacity='0.85'></rect><rect width='388' height='2' x='61' y='642' rx='1' transform='rotate(129, 255, 643)' opacity='0.49'></rect><rect width='147' height='2' x='447.5' y='475' rx='1' transform='rotate(129, 521, 476)' opacity='0.47'></rect><rect width='402' height='2' x='524' y='104' rx='1' transform='rotate(129, 725, 105)' opacity='0.97'></rect><rect width='507' height='2' x='-154.5' y='260' rx='1' transform='rotate(129, 99, 261)' opacity='0.75'></rect><rect width='277' height='2' x='513.5' y='415' rx='1' transform='rotate(129, 652, 416)' opacity='0.22'></rect><rect width='90' height='2' x='34' y='49' rx='1' transform='rotate(129, 79, 50)' opacity='0.55'></rect><rect width='88' height='2' x='708' y='292' rx='1' transform='rotate(129, 752, 293)' opacity='0.48'></rect><rect width='313' height='2' x='594.5' y='390' rx='1' transform='rotate(129, 751, 391)' opacity='0.68'></rect><rect width='110' height='2' x='581' y='50' rx='1' transform='rotate(129, 636, 51)' opacity='0.29'></rect><rect width='350' height='2' x='81' y='411' rx='1' transform='rotate(129, 256, 412)' opacity='0.49'></rect><rect width='218' height='2' x='325' y='42' rx='1' transform='rotate(129, 434, 43)' opacity='0.39'></rect><rect width='468' height='2' x='164' y='553' rx='1' transform='rotate(129, 398, 554)' opacity='0.35'></rect><rect width='97' height='2' x='461.5' y='756' rx='1' transform='rotate(129, 510, 757)' opacity='0.86'></rect></g></svg>")`,
-        backgroundSize: 'cover',
+        backgroundSize: isDarkMode ? 'cover' : '100% 200%',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
     >
-      <h1 className="max-w-1/2 w-2/5 text-4xl md:text-6xl font-bold">
-        <span className="text-blue-400">BizAI:</span> The best ML no-code platform
+      {/* Content Layer */}
+      <header className={`p-2 flex lg:space-x-40 space-x-5 pr-4 justify-between items-center ${isDarkMode ? 'bg-black' : 'bg-white'} bg-opacity-90 border-2 rounded-full mt-5 border-gray-800 sticky top-4 z-50`}>
+        <div className="sm:flex hidden items-center space-x-6">
+          <AudioWaveform className='pl-2 pr-0' size={40} />
+          <h1 className="text-2xl font-bold">BizAI</h1>
+        </div>
+        <div className="sm:hidden relative">
+          <button onClick={toggleNavDropdown} className='flex'>
+            <Menu size={26} />
+          </button>
+          {isNavDropdownOpen && (
+            <div className={`fixed top-24 left-10 w-4/5 h-1/5 bg-opacity-100 flex flex-col justify-center items-center ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-white text-black'} border-4 rounded-xl border-gray-800`}>
+              <a href="/resources" className={`hover:animate-pulse block mt-6 py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>🔍Resources</a>
+              <a href="/pricing" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>🔝 Pricing</a>
+              <a href="/docs" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>📚Documentation</a>
+              <a href="#github" className={`hover:animate-pulse block py-6 text-lg ${isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-600'} border m-1 rounded-xl text-center w-3/4`}>⭐GitHub</a>
+              <button onClick={toggleNavDropdown} className="mt-6 px-6 py-4 bg-red-900 rounded-full text-white text-lg flex items-center hover:animate-pulse">
+                <X className="flex" size={24} />
+              </button>
+            </div>
+          )}
+        </div>
+        <nav className="hidden sm:flex space-x-0">
+          <a href="/resources" className="text-gray-400 hover:text-white rounded-full p-2">Resources</a>
+          <a href="/pricing" className="text-gray-400 hover:text-white rounded-full p-2">Pricing</a>
+          <a href="/docs" className="text-gray-400 hover:text-white rounded-full p-2">Documentation</a>
+          <a href="#github" className="text-gray-400 hover:text-white rounded-full p-2">GitHub⭐</a>
+        </nav>
+        <div className="flex items-center space-x-4">
+          <CoolButton_2 children={'Dashboard'} />
+          <div className="relative">
+            <button onClick={toggleDropdown} className='border-2 rounded-full p-1'>
+              <UserRound size={24} />
+            </button>
+            {isDropdownOpen && (
+              <div className={`absolute left-1/2 transform -translate-x-1/2 mt-4 w-32 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-200 text-black'} rounded-md shadow-lg`}>
+                <a href="/login" className="flex items-center justify-center px-4 py-2 text-sm hover:bg-gray-700 rounded-md">
+                  <UserPlus className="mr-2" size={16} /> Sign Up
+                </a>
+              </div>
+            )}
+          </div>
+          <DarkModeSwitch isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+        </div>
+      </header>
+
+      <h1 className="max-w-1/2 w-3/5 md:text-6xl text-3xl font-bold md:mt-48 mt-16">
+        <span className="text-red-800">BizAI:</span> The best ML no-code software experience
       </h1>
-      <p className="mt-4 text-xl md:text-xl text-gray-400">🚀 Tired of hearing about AI but never have been able to create your own model?</p>
-      <p className="mt-2 text-lg text-gray-400">😉 We make all the heavy-lifting so you can focus on the creative part of AI</p>
-      <button className="mt-8 bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-full text-lg">Download For Free</button>
-      <p className="mt-4 text-sm text-gray-400">Backed by <span className="text-orange-500">Y Combinator</span></p>
+      <p className={`sm:mt-20 mt-10 font-semibold mb-4 ml-4 mr-4 text-md sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>
+        <span>🤔 Tired of hearing about AI but never been able to create your</span><span className='font-bold'> own</span> model?
+      </p>
+      <p className={`sm:mb-16 mb-8 mt-4 ml-4 mr-4 text-md font-semibold sm:text-xl ${isDarkMode ? 'text-gray-400' : 'text-black'}`}>💪 We make all the heavy-lifting so you can focus on the creative part of AI</p>
+      <CoolButton_2 children={'Get Started'} />
+
+      {/* Background Image Layer at the Bottom */}
+      <BgImage_3 />
     </main>
   );
 };
