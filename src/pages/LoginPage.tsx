@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 import Button from "../components/CoolButton_1"

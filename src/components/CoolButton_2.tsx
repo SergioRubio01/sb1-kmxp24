@@ -2,26 +2,32 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const CoolButton_2 = ({ children }) => {
+const CoolButton_2 = ({ children, height, href }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
-    setIsClicked(true);
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 200);
+  const handleClick = (event) => {
+    if (href) {
+      setIsClicked(true);
+      setTimeout(() => {
+        setIsClicked(false);
+      }, 200);
+    } else {
+      event.preventDefault(); // Prevent default if no href is provided
+    }
   };
 
   return (
-    <StyledWrapper>
-      <motion.button
+    <StyledWrapper height={height}>
+      <motion.a
         className="button" // Add the class name to use the styles from StyledWrapper
         whileHover={{ scale: 1.05 }} // Hover animation to increase size
         whileTap={{ scale: 0.9 }} // Click animation to decrease size
         onClick={handleClick} // Handle the click event
+        href={href} // Add the href attribute to the anchor
+        rel="noopener noreferrer" // Security for opening new tabs
       >
         <span className="button-content font-bold font-mono">{children}</span> {/* Wrap children inside a span with class button-content */}
-      </motion.button>
+      </motion.a>
     </StyledWrapper>
   );
 };
@@ -32,14 +38,18 @@ const StyledWrapper = styled.div`
   justify-content: center;
 
   .button {
+    display: flex; // Use flexbox for centering
+    align-items: center; // Center vertically
+    justify-content: center; // Center horizontally
     position: relative;
     overflow: hidden;
-    height: 2.5rem;
-    padding: 0 2rem;
+    height: ${(props) => props.height || "2rem"};
+    padding: 0 2rem; // Remove padding for better centering
     border-radius: 1rem;
     background: #3d3a4e;
     background-size: 400%;
     color: #fff;
+    text-decoration: none; // Remove underline from link
     border: none;
     cursor: pointer;
     transition: transform 0.2s;

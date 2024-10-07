@@ -49,3 +49,22 @@ main {
 nav a:hover {
   background-color: #363636;
 }
+
+.menu-bounce:hover {
+  animation: animate__rubberBand;
+  animation-duration: 1s;
+}
+
+.menu-entrance:active {
+  animation: animate__lightSpeedInLeft;
+  animation-duration: 1s;
+}
+
+.menu-exit:active {
+  animation: animate__lightSpeedOutLeft;
+  animation-duration: 1s;
+}
+
+.title-hero-pulse {
+  animation: animate__pulse infinite;
+}

@@ -23,12 +23,12 @@ function LandingPage() {
       initial={{ opacity: 0, y: 100 }} // Start from slightly below and fully transparent
       animate={{ opacity: 1, y: 0 }} // Transition to normal position with full opacity
       transition={{ duration: 1, ease: "easeOut" }} // Set duration and easing for smooth effect
-    >
+      >
       {/* Background Image Layer */}
-      <BgImage_3 />
+      <BgImage_3 isDarkMode={isDarkMode} />
 
       {/* Content Layers */}
-      <Hero isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Hero />
       <Features isDarkMode={isDarkMode} />
       <Footer />
     </motion.div>

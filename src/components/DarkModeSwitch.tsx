@@ -43,7 +43,7 @@ const StyledWrapper = styled.div`
   }
 
   .dark-mode-button:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
 
   .icon {

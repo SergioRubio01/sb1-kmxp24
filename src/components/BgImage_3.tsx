@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../AnimatedStars.css';
 
-const BgImage_3 = () => {
+const BgImage_3 = ({ isDarkMode }) => {
   useEffect(() => {
     const svg = document.getElementById('animatedStars');
     const lines = [];
@@ -53,9 +53,13 @@ const BgImage_3 = () => {
       width="100%"
       height="100%"
       style={{
-        background: '#000',
+        // backgroundColor: isDarkMode ? 'black' : 'white', // Set black background for dark mode
+         // Use correct syntax for backgroundImage
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
         position: 'fixed',
-        top: 0,
+        top: -100,
         left: 0,
         zIndex: -1, // Send to the back of all elements
         width: '100vw',
