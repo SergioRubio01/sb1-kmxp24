@@ -5,6 +5,7 @@ import CoolButton_2 from '../components/CoolButton_2';
 import styled from 'styled-components';
 import { useDarkMode } from '../pages/LandingPage';
 import { VALID_ROLES } from '../constants/Roles';
+import Header from '../components/Header';
 
 const LoginPage = () => {
   const  {isDarkMode,toggleDarkMode} = useDarkMode();
@@ -18,7 +19,8 @@ const LoginPage = () => {
   };
 
   return (
-    <StyledPageWrapper isDarkMode={isDarkMode}>
+    <StyledPageWrapper isDarkMode={isDarkMode} className='flex flex-col'>
+      <Header />
       <motion.div
         className={`max-w-md w-full space-y-10 ${isDarkMode ? 'bg-white' : 'bg-gray-400'} p-10 rounded-3xl shadow-xl`}
         initial={{ opacity: 0, y: 50 }}
