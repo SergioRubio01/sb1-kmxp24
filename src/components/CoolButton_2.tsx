@@ -35,7 +35,7 @@ const CoolButton_2 = ({ children, height, href, paddingX }) => {
       <motion.a
         className="button"
         // Animation to slightly increase the size when hovered
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.1 }}
         // Animation to slightly decrease the size when clicked
         whileTap={{ scale: 0.9 }}
         onClick={handleClick}
@@ -70,7 +70,7 @@ const StyledWrapper = styled.div`
     text-decoration: none;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.1s;
     will-change: transform; // Hint to the browser to optimize the transform property for better performance
   }
 
@@ -98,7 +98,7 @@ const StyledWrapper = styled.div`
     background: linear-gradient(
       90deg,
       rgba(255, 0, 0, 1) 0%,
-      rgba(150, 100, 94, 1) 70%
+      #e25050 100%
     );
     transition: all 0.2s;
     z-index: 1; // Ensure the background gradient is below the button text

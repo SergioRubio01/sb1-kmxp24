@@ -5,7 +5,7 @@ import CardFeatures from './CardFeatures';
 const Features = ({ isDarkMode }) => {
   return (
     <section
-      className={`relative w-full h-full pt-20 flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 `}
+      className={`relative w-full h-full pt-10 flex flex-col justify-center items-center text-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} pb-40 `}
     >
       <div className="sm:w-1/2 sm:mx-0 mx-5">
         <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>

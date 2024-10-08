@@ -1,14 +1,15 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 import { motion } from 'framer-motion';
-import {Hero} from '../components/Hero';
-import Features from '../components/Features';
+import { Hero } from '../components/Hero';
 import Footer from '../components/Footer';
+import Features from '../components/Features';
 
-const DarkModeContext = createContext('light');
+const DarkModeContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // Retrieve saved dark mode preference or system preference on initial load
   useEffect(() => {
     const savedPreference = localStorage.getItem('darkMode');
     if (savedPreference !== null) {
@@ -19,6 +20,7 @@ export const DarkModeProvider = ({ children }) => {
     }
   }, []);
 
+  // Listen for changes in system preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e) => setIsDarkMode(e.matches);
@@ -27,6 +29,7 @@ export const DarkModeProvider = ({ children }) => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // Apply dark mode class to the document root based on state
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -35,6 +38,7 @@ export const DarkModeProvider = ({ children }) => {
     }
   }, [isDarkMode]);
 
+  // Toggle dark mode and save preference to localStorage
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
@@ -50,20 +54,29 @@ export const DarkModeProvider = ({ children }) => {
   );
 };
 
+// Hook to access dark mode context
 export const useDarkMode = () => {
-  return useContext(DarkModeContext);
+  const context = useContext(DarkModeContext);
+  if (context === undefined) {
+    throw new Error('useDarkMode must be used within a DarkModeProvider');
+  }
+  return context;
 };
 
+// Main landing page component
 const LandingPage = () => {
   const { isDarkMode } = useDarkMode();
 
   return (
     <motion.div
-      className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'} relative`}
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      style={{
+        backgroundImage: isDarkMode ? `url(fondo_3.svg)` : `url(fondo_5.svg)`,
+      }}
     >
+      {/* Consistent Header component across all pages */}
       <Hero />
       <Features isDarkMode={isDarkMode} />
       <Footer />

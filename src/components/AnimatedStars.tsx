@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import '../AnimatedStars.css';
 
-const BgImage_3 = ({ isDarkMode }) => {
+const AnimatedStars = ({ isDarkMode }) => {
   useEffect(() => {
     const svg = document.getElementById('animatedStars');
     const lines = [];
@@ -77,4 +77,4 @@ const BgImage_3 = ({ isDarkMode }) => {
   );
 };
 
-export default BgImage_3;
+export default AnimatedStars;

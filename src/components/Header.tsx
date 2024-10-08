@@ -3,7 +3,7 @@ import { useDarkMode } from '../pages/LandingPage';
 import { useSpring, animated } from 'react-spring'; // Import animated from react-spring for animations
 import DarkModeSwitch from './DarkModeSwitch';
 import CoolButton_2 from './CoolButton_2';
-import { UserRound, AudioWaveform, UserPlus, Menu, X } from 'lucide-react'; // Import icons from lucide-react
+import { UserRound, AudioWaveform , Menu, X } from 'lucide-react'; // Import icons from lucide-react
 import 'animate.css'; // Import CSS animations from animate.css
 
 const Header = () => {
@@ -26,10 +26,10 @@ const Header = () => {
   return (
     <header 
         // Header with conditional styling for dark mode and layout properties
-        className={`p-2 flex lg:space-x-40 space-x-5 pr-4 justify-between items-center ${isDarkMode ? 'bg-black' : 'bg-white'} bg-opacity-90 border-2 rounded-full mt-5 border-gray-800 sticky top-4 z-50`}
+        className={`py-2 flex lg:space-x-40 space-x-5 px-4 justify-between items-center ${isDarkMode ? 'bg-black' : 'bg-white'} bg-opacity-90 border-2 rounded-full border-gray-800 sticky top-4 sm:top-10 z-50`}
       >
         {/* Logo and Title - visible only on larger screens */}
-        <div className="sm:flex hidden items-center space-x-6">
+        <div className={`md:flex hidden items-center space-x-2 ${isDarkMode ? 'text-white' : 'text-black' }  font-mono`}>
           <AudioWaveform className='pl-2 pr-0' size={40} /> {/* AudioWaveform icon as a logo */}
           <button onClick={() => window.location.href = '/'} className="text-2xl font-bold">BizAI</button> {/* Application name as a button to navigate to the home page */}
         </div>
@@ -57,10 +57,10 @@ const Header = () => {
         </div>
         {/* Desktop navigation links */}
         <nav className="hidden sm:flex space-x-0">
-          <a href="/resources" className="text-gray-400 hover:text-white rounded-full p-2">Resources</a>
-          <a href="/pricing" className="text-gray-400 hover:text-white rounded-full p-2">Pricing</a>
-          <a href="/docs" className="text-gray-400 hover:text-white rounded-full p-2">Documentation</a>
-          <a href="#github" className="text-gray-400 hover:text-white rounded-full p-2">GitHub⭐</a>
+          <a href="/resources" className={`${isDarkMode ? 'text-white' : 'text-black'} hover:text-white rounded-full p-2`}>Resources</a>
+          <a href="/pricing" className={`${isDarkMode ? 'text-white' : 'text-black'} hover:text-white rounded-full p-2`}>Pricing</a>
+          <a href="/docs" className={`${isDarkMode ? 'text-white' : 'text-black'} hover:text-white rounded-full p-2`}>Documentation</a>
+          <a href="#github" className={`${isDarkMode ? 'text-white' : 'text-black'} hover:text-white rounded-full p-2`}>GitHub⭐</a>
         </nav>
         {/* User action buttons: Dashboard, User Icon, Dark Mode Switch */}
         <div className="flex items-center space-x-4">
@@ -73,8 +73,8 @@ const Header = () => {
             {/* User dropdown for Sign Up - appears when isDropdownOpen is true */}
             {isDropdownOpen && (
               <div className={`absolute right-0 transform -translate-x-1/2 mt-4 w-32 ${isDarkMode ? 'bg-slate-600 text-white' : 'bg-gray-300 text-black'} rounded-md shadow-lg animate__animated animate__backInDown`}>
-                <a href="/login" className={`flex items-center justify-center px-4 py-2 text-sm ${isDarkMode ? 'hover:bg-slate-800':'hover:bg-gray-500'} rounded-md`}>
-                  <UserPlus className="mr-2" size={16} /> Sign Up
+                <a href="/login" className={`flex items-center font-semibold justify-center px-4 py-2 text-sm ${isDarkMode ? 'hover:bg-slate-800':'hover:bg-gray-500'} rounded-md`}>
+                  Sign In
                 </a>
               </div>
             )}
