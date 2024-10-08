@@ -9,7 +9,7 @@ import PricingSelector from '../components/PricingSelector';
 import PricingCard from '../components/PricingCard';
 
 const Pricing = () => {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const {isDarkMode, toggleDarkMode} = useDarkMode();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isNavDropdownOpen, setIsNavDropdownOpen] = useState(false);
 
@@ -32,7 +32,7 @@ const Pricing = () => {
       <header className={`p-2 flex lg:space-x-40 space-x-5 pr-4 justify-center items-center ${isDarkMode ? 'bg-black' : 'bg-white'} bg-opacity-90 border-2 rounded-full mt-5 border-gray-800 fixed top-0 left-1/2 transform -translate-x-1/2 max-w-full z-50`}> {/* Changed to fixed position and centered */}
         <div className="sm:flex hidden items-center space-x-6">
           <AudioWaveform className='pl-2 pr-0' size={40} />
-          <h1 className="text-2xl font-bold">BizAI</h1>
+          <button onClick={() => window.location.href = '/'} className="text-2xl font-bold">BizAI</button> {/* Application name as a button to navigate to the home page */}
         </div>
         <div className="sm:hidden relative">
           <button onClick={toggleNavDropdown} className='flex menu-bounce rounded-lg p-1 hover:bg-gray-800'>
@@ -57,7 +57,7 @@ const Pricing = () => {
           <a href="#github" className="text-gray-400 hover:text-white rounded-full p-2">GitHub⭐</a>
         </nav>
         <div className="flex items-center space-x-4">
-          <CoolButton_2 children={'Dashboard'} height={'2rem'} />
+          <CoolButton_2 children={'Dashboard'} height={'2rem'} href={'/'}/>
           <div className="relative">
             <button onClick={toggleDropdown} className='border-2 rounded-full p-1'>
               <UserRound size={24} />
@@ -74,7 +74,7 @@ const Pricing = () => {
         </div>
       </header>
 
-      <animated.h1 className="w-4/5 md:text-6xl text-4xl font-semibold md:mt-48 mt-52 mb-2">
+      <animated.h1 className="w-4/5 md:w-1/2 md:text-5xl text-4xl font-semibold md:mt-48 mt-52 mb-2">
         <animated.span className="text-blue-400">
           Create
         </animated.span>{' '}
@@ -92,9 +92,9 @@ const Pricing = () => {
       </div>
 
       <div className='flex flex-col grid-col-1 md:grid-cols-3 justify-center items-center space-y-4 mt-6'>
-            <PricingCard backgroundColor = '#991b1b' title = 'Individual' description = 'For individual developers' price='' description2 = 'Get Started'/>
-            <PricingCard backgroundColor = '#f3f4f6' title = 'Teams' description = 'For teams and organizations' price='' description2 = 'Get Started'/>
-            <PricingCard backgroundColor = '#f3f4f6' title = 'Teams' description = 'For teams and organizations' price='' description2 = 'Get Started'/>
+            <PricingCard backgroundColor = '#404040' title = 'Individual' description = 'For individual developers' price='' description2 = 'Get Started'/>
+            <PricingCard backgroundColor = '#404040' title = 'Teams' description = 'For teams and organizations' price='' description2 = 'Get Started'/>
+            <PricingCard backgroundColor = '#404040' title = 'Teams' description = 'For teams and organizations' price='' description2 = 'Get Started'/>
       </div>
     </main>
   );

@@ -7,7 +7,7 @@ import { useDarkMode } from '../pages/LandingPage';
 import { VALID_ROLES } from '../constants/Roles';
 
 const LoginPage = () => {
-  const  {isDarkMode}  = useDarkMode();
+  const  {isDarkMode,toggleDarkMode} = useDarkMode();
   const [role, setRole] = useState('');
 
   const handleRoleChange = (e) => {
@@ -20,13 +20,13 @@ const LoginPage = () => {
   return (
     <StyledPageWrapper isDarkMode={isDarkMode}>
       <motion.div
-        className="max-w-md w-full space-y-10 bg-white p-10 rounded-3xl shadow-xl"
+        className={`max-w-md w-full space-y-10 ${isDarkMode ? 'bg-white' : 'bg-gray-400'} p-10 rounded-3xl shadow-xl`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div>
-          <h2 className="mt-2 text-center text-3xl font-extrabold text-black">Create a new account</h2>
+          <h2 className={`mt-2 text-center text-3xl font-extrabold ${isDarkMode ? 'text-black' : 'text-white'}`}>Create a new account</h2>
         </div>
         <form className="mt-8 space-y-6" action="#" method="POST">
           <input type="hidden" name="remember" value="true" />
