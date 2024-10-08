@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Pricing from './pages/Pricing';
-import Documentation from './pages/Documentation';
+import Documentation from './components/DocumentationComponent';
 
 function App() {
   return (

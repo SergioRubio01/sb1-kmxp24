@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   return (
     <motion.div
-      className={`min-h-screen w-full flex flex-col items-center ${isDarkMode ? 'bg-black' : 'bg-white'}`}
+      className={`min-h-screen w-full flex flex-col items-center ${isDarkMode ? 'bg-black' : 'bg-cyan-50'}`}
       style={{
         backgroundImage: backgroundImage,
         backgroundSize: backgroundSize,
